@@ -46,27 +46,36 @@ class UserModel
      */
     public function validarInicioSesion($correo, $contrasena)
     {
-        // Obtener el hash de la contraseña almacenada en la base de datos para el correo especificado
-        $stmt = $this->conn->prepare("SELECT contrasena FROM usuarios WHERE correo = ?");
+        // Preparar la consulta para obtener la información del usuario
+        $stmt = $this->conn->prepare("SELECT id_usuario, nombre, correo, contrasena FROM usuarios WHERE correo = ?");
         $stmt->bind_param("s", $correo);
         $stmt->execute();
         $resultado = $stmt->get_result();
 
         // Verificar si se encontró un usuario con el correo especificado
-        if ($resultado->num_rows != 1) {
+        if ($resultado->num_rows == 0) {
             return false;
         }
 
-        // Obtener el hash de la contraseña de la fila del usuario encontrado
+        // Obtener los datos del usuario
         $fila = $resultado->fetch_assoc();
-        $contrasenaEncriptada = $fila['contrasena'];
+        $id = $fila['id_usuario'];
+        $nombre = $fila['nombre'];
+        $correo = $fila['correo'];
+        $contrasena_encriptada = $fila['contrasena'];
 
-        // Verificar si la contraseña en texto plano coincide con el hash almacenado
-        if (password_verify($contrasena, $contrasenaEncriptada)) {
+        // Verificar si la contraseña es correcta
+        if (password_verify($contrasena, $contrasena_encriptada)) {
+            // Iniciar sesión
+            session_start();
+            $_SESSION['id_usuario'] = $id;
+            $_SESSION['nombre'] = $nombre;
+            $_SESSION['correo'] = $correo;
             return true;
         } else {
             return false;
         }
     }
+
 }
 ?>
