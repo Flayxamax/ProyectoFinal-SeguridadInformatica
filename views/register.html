@@ -44,38 +44,31 @@
 					<h3>Registrar una cuenta</h3>
 					<hr />
 
-					<form method="post" action="create-account.php" method="POST">
+					<form method="post" action="../controllers/UserController.php">
 						<div class="form-group">
-							<input type="text" class="form-control" name="nombre" placeholder="Ingrese su nombre"
-								required>
+							<input type="text" class="form-control" name="nombre" placeholder="Ingrese su nombre" required>
 						</div>
-
+					
 						<div class="form-group">
-							<input type="text" class="form-control" name="apellidoP"
-								placeholder="Ingrese su apellido paterno" required>
+							<input type="text" class="form-control" name="apellidoP" placeholder="Ingrese su apellido paterno" required>
 						</div>
-
+					
 						<div class="form-group">
-							<input type="text" class="form-control" name="apellidoM"
-								placeholder="Ingrese su apellido materno" required>
+							<input type="text" class="form-control" name="apellidoM" placeholder="Ingrese su apellido materno" required>
 						</div>
-
+					
 						<div class="form-group">
-							<input type="email" class="form-control" name="email" aria-describedby="emailHelp"
-								placeholder="Ingrese su correo electronico" required>
+							<input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Ingrese su correo electronico" required>
 						</div>
-
+					
 						<div class="form-group">
-							<input type="password" class="form-control" name="pass" placeholder="Ingrese una contraseña"
-								required>
-							<input type="checkbox" id="exampleCheck1" required>
-							<label class="form-check-label" for="exampleCheck1">Acepto los términos y
-								condiciones</label>
+							<input type="password" class="form-control" name="pwd" placeholder="Ingrese una contraseña" required>
 						</div>
-
-						<button style="background-color: #1f7765;" type="submit"
-							class="btn btn-success btn-block">Registrar cuenta</button>
+					
+						<button style="background-color: #1f7765;" type="submit" name="registrarUsuario" onclick="registrarUsuario()" class="btn btn-success btn-block">Registrar cuenta</button>
 					</form>
+					
+					
 				</div>
 				<div class="col-sm-12 col-md-6 col-lg-6">
 					<h3>Iniciar sesión</h3>
