@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Encriptador AES</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/AES-encrypt.css">
+</head>
+<header>
+    <div class="logo">
+        <p1>Seguridad informatica</p1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="encrypt.html">Encriptar</a></li>
+            <li><a href="decrypt.html">Desencriptar</a></li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+    <div class="container">
+        <h1 class="mt-4">Encriptador AES</h1>
+        <form method="post" action="../controllers/selectModeController.php" class="mt-4">
+            <div class="form-group">
+                <label for="plaintext">Texto plano:</label>
+                <textarea class="form-control" name="plaintext" rows="4" cols="50"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="key">Clave:</label>
+                <input type="text" class="form-control" name="key">
+            </div>
+            <div class="form-group">
+                <label for="cipherMode">Modo de cifrado:</label>
+                <select class="form-control" name="cipherMode">
+                    <option value="CBC">CBC</option>
+                    <option value="ECB">ECB</option>
+                    <option value="CFB">CFB</option>
+                    <option value="OFB">OFB</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary" name="encrypt">Encriptar</button>
+        </form>
+    </div>
+</body>
+
+</html>
