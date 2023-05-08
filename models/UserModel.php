@@ -47,7 +47,7 @@ class UserModel
     public function validarInicioSesion($correo, $contrasena)
     {
         // Preparar la consulta para obtener la información del usuario
-        $stmt = $this->conn->prepare("SELECT id_usuario, nombre, correo, contrasena FROM usuarios WHERE correo = ?");
+        $stmt = $this->conn->prepare("SELECT id_usuario, nombre, apellido_paterno, apellido_materno, correo, contrasena FROM usuarios WHERE correo = ?");
         $stmt->bind_param("s", $correo);
         $stmt->execute();
         $resultado = $stmt->get_result();
@@ -61,6 +61,8 @@ class UserModel
         $fila = $resultado->fetch_assoc();
         $id = $fila['id_usuario'];
         $nombre = $fila['nombre'];
+        $apellidoPaterno = $fila['apellido_paterno'];
+        $apellidoMaterno = $fila['apelido_materno'];
         $correo = $fila['correo'];
         $contrasena_encriptada = $fila['contrasena'];
 
@@ -70,6 +72,8 @@ class UserModel
             session_start();
             $_SESSION['id_usuario'] = $id;
             $_SESSION['nombre'] = $nombre;
+            $_SESSION['apellido_paterno'] = $apellidoPaterno;
+            $_SESSION['apellido_materno'] = $apellidoMaterno;
             $_SESSION['correo'] = $correo;
             return true;
         } else {

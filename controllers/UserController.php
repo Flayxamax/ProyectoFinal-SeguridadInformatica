@@ -47,9 +47,15 @@ class UserController
 
         // Verificar las credenciales utilizando UserModel
         if ($this->userModel->validarInicioSesion($correo, $contrasena)) {
-            // Iniciar sesión y redirigir al usuario a la página principal si las credenciales son válidas
+            // Obtener el nombre completo del usuario
+            $nombreCompleto = $_SESSION['nombre'] . " " . $_SESSION['apellido_paterno'] . " " . $_SESSION['apellido_materno'];
+
+            // Iniciar sesión y almacenar el nombre completo en la variable de sesión
             session_start();
             $_SESSION['email'] = $correo;
+            $_SESSION['nombre_completo'] = $nombreCompleto;
+
+            // Redirigir al usuario a la página principal
             header("Location: ../views/index.php");
             exit();
         } else {

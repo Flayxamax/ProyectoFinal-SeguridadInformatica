@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="es">
 
@@ -5,7 +8,7 @@
     <title>Seguridad informatica</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="views/css/index.css">
+    <link rel="stylesheet" type="text/css" href="../views/css/index.css">
 </head>
 
 <body>
@@ -15,8 +18,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="views/register.html">Unete</a></li>
-                <li><a href="views/login.html">Inicia sesión</a></li>
+                <li style="color: white">Bienvenido,
+                    <?php echo $_SESSION['nombre_completo']; ?>
+                </li>
+                <li><a href="../views/login.html">Salir</a></li>
             </ul>
         </nav>
     </header>
@@ -28,7 +33,7 @@
                 <p>Encripta y desencripta cualquiero texto ;)</p>
             </div>
             <div class="banner-image">
-                <img id="slide" src="views/img/encriptacion.png" alt="Imagen del banner">
+                <img id="slide" src="../views/img/encriptacion.png" alt="Imagen del banner">
             </div>
         </div>
     </div>
@@ -36,7 +41,7 @@
     <div id="contenido">
         <main>
             <div class="main-image">
-                <img src="views/img/aes (Custom).png" alt="Descripción de la imagen">
+                <img src="../views/img/aes (Custom).png" alt="Descripción de la imagen">
             </div>
             <h2>Definición</h2>
             <p>En este trabajo se estará realizando una página Web que denote un algoritmo de encriptación, con el fin
@@ -56,7 +61,7 @@
             <hr>
 
             <div class="main-image">
-                <img src="views/img/aes (Custom).png" alt="Descripción de la imagen">
+                <img src="../views/img/aes (Custom).png" alt="Descripción de la imagen">
             </div>
             <h2>Definición</h2>
             <p>En este trabajo se estará realizando una página Web que denote un algoritmo de encriptación, con el fin
@@ -76,7 +81,7 @@
             <hr>
         </main>
     </div>
-    <script src="views/js/script_slide_img.js"></script>
+    <script src="../views/js/script_slide_img.js"></script>
 
     <footer>
         <div class="footer-info">
