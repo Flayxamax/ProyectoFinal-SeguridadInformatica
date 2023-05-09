@@ -28,8 +28,8 @@ if (isset($_SESSION['start_time']) && time() - $_SESSION['start_time'] > $sessio
     </div>
     <nav>
         <ul>
-            <li><a href="../views/encrypt.html" style="color: white">Encriptar</a></li>
-            <li><a href="../views/decrypt.html" style="color: white">Desencriptar</a></li>
+            <li><a href="../views/encrypt.php" style="color: white">Encriptar</a></li>
+            <li><a href="../views/decrypt.php" style="color: white">Desencriptar</a></li>
         </ul>
     </nav>
 </header>
