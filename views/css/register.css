@@ -46,12 +46,12 @@ header {
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.logo a{
+.logo a {
     text-decoration: none;
     color: #fff;
 }
 
-.logo a:hover{
+.logo a:hover {
     color: #333333;
 }
 
@@ -104,4 +104,14 @@ footer {
     color: #ffffff;
     font-size: 24px;
     text-decoration: none;
+}
+
+.form-container {
+    position: relative;
+}
+
+.img-responsive2 {
+    position: absolute;
+    bottom: -16px;
+    right: 120px;
 }

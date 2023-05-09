@@ -25,11 +25,6 @@
 		});
 	</script>
 
-	<!-- validation Libraries-->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
-	<script src="../views/js/validatePassword.js"></script>
-
 </head>
 
 <header>
@@ -48,51 +43,51 @@
 					<p>Registrar una cuenta para ingresar a la página</p>
 				</div>
 			</div>
+			<div class="form-container">
+				<div class="row">
+					<div class="col-sm-12 col-md-6 col-lg-6">
+						<h3>Registrar una cuenta</h3>
+						<hr />
 
-			<div class="row">
-				<div class="col-sm-12 col-md-6 col-lg-6">
-					<h3>Registrar una cuenta</h3>
-					<hr />
+						<form method="post" id="myform" action="../controllers/redirigirController.php"
+							data-sitekey="6LeGeNclAAAAANJYV865g-VILQD_3-NzbCUCSE6u">
+							<div class="form-group">
+								<input type="text" class="form-control" name="nombre" placeholder="Ingrese su nombre"
+									required>
+							</div>
 
-					<form method="post" id="myform" action="../controllers/redirigirController.php"
-						data-sitekey="6LeGeNclAAAAANJYV865g-VILQD_3-NzbCUCSE6u">
-						<div class="form-group">
-							<input type="text" class="form-control" name="nombre" placeholder="Ingrese su nombre"
-								required>
-						</div>
+							<div class="form-group">
+								<input type="text" class="form-control" name="apellidoP"
+									placeholder="Ingrese su apellido paterno" required>
+							</div>
 
-						<div class="form-group">
-							<input type="text" class="form-control" name="apellidoP"
-								placeholder="Ingrese su apellido paterno" required>
-						</div>
+							<div class="form-group">
+								<input type="text" class="form-control" name="apellidoM"
+									placeholder="Ingrese su apellido materno" required>
+							</div>
 
-						<div class="form-group">
-							<input type="text" class="form-control" name="apellidoM"
-								placeholder="Ingrese su apellido materno" required>
-						</div>
+							<div class="form-group">
+								<input type="email" class="form-control" name="email" aria-describedby="emailHelp"
+									placeholder="Ingrese su correo electronico" required>
+							</div>
 
-						<div class="form-group">
-							<input type="email" class="form-control" name="email" aria-describedby="emailHelp"
-								placeholder="Ingrese su correo electronico" required>
-						</div>
+							<div class="form-group">
+								<input type="password" class="form-control" name="pwd"
+									placeholder="Ingrese una contraseña" required>
+							</div>
 
-						<div class="form-group">
-							<input type="password" class="form-control" name="pwd" placeholder="Ingrese una contraseña"
-								required oninput="validarContrasena()">
-						</div>
-
-						<div id="recaptcha-container"></div>
-						<button style="background-color: #1f7765;" type="submit" name="registrarUsuario"
-							onclick="registrarUsuario()" class="btn btn-success btn-block">Registrar cuenta</button>
-					</form>
-
-
-				</div>
-				<div class="col-sm-12 col-md-6 col-lg-6">
-					<h3>Iniciar sesión</h3>
-					<hr />
-					<p>¿Ya cuentas con una cuenta registrada? <a href="login.html" title="Login Here">Inicia sesión
-							aquí</a></p>
+							<div id="recaptcha-container"></div>
+							<button style="background-color: #1f7765;" type="submit" name="registrarUsuario"
+								class="btn btn-success btn-block">Registrar cuenta</button>
+						</form>
+					</div>
+					<div class="col-sm-12 col-md-6 col-lg-6">
+						<h3>Iniciar sesión</h3>
+						<hr />
+						<p>¿Ya cuentas con una cuenta registrada? <a href="login.html" title="Login Here">Inicia sesión
+								aquí</a></p>
+						<img src="img/logo2.png" class="img-responsive align-bottom" alt="Kaguyita">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -122,6 +117,39 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
 		integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
 		crossorigin="anonymous"></script>
+
+	<script>
+		const form = document.getElementById('myform');
+
+		form.addEventListener('submit', function (event) {
+			// Validar nombre
+			const nombreInput = form.elements['nombre'];
+			const nombre = nombreInput.value.trim();
+			if (!/^[a-zA-Z ]{1,100}$/.test(nombre)) {
+				event.preventDefault();
+				alert('El nombre debe contener solamente letras y espacios, y tener una longitud menor o igual a 100');
+				return;
+			}
+
+			// Validar apellido paterno
+			const apellidoPInput = form.elements['apellidoP'];
+			const apellidoP = apellidoPInput.value.trim();
+			if (!/^[a-zA-Z ]{1,100}$/.test(apellidoP)) {
+				event.preventDefault();
+				alert('El apellido paterno debe contener solamente letras y espacios, y tener una longitud menor o igual a 100');
+				return;
+			}
+
+			// Validar apellido materno
+			const apellidoMInput = form.elements['apellidoM'];
+			const apellidoM = apellidoMInput.value.trim();
+			if (!/^[a-zA-Z ]{1,100}$/.test(apellidoM)) {
+				event.preventDefault();
+				alert('El apellido materno debe contener solamente letras y espacios, y tener una longitud menor o igual a 100');
+				return;
+			}
+		});
+	</script>
 
 </body>
 

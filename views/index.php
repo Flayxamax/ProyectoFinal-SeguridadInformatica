@@ -33,18 +33,23 @@ if (isset($_SESSION['start_time']) && time() - $_SESSION['start_time'] > $sessio
             <p1>Seguridad informática</p1>
         </div>
         <nav>
-            <ul>
-                <li style="color: white">Bienvenido,
+            <ul style="display: flex; align-items: center;">
+                <li style="flex-grow: 1; text-align: center; color: white;">
+                    Bienvenido,
                     <?php echo $_SESSION['nombre_completo']; ?>
                 </li>
                 <form action="../controllers/redirigirController.php" method="post">
-                    <li><button style="background-color: #1f7765;" type="submit" name="cerrarSesion"
-								class="btn btn-success btn-block">Salir</button>
+                    <li>
+                        <button style="background-color: #1f7765;" type="submit" name="cerrarSesion"
+                            class="btn btn-success btn-block">
+                            Salir
+                        </button>
                     </li>
                 </form>
             </ul>
         </nav>
     </header>
+
 
     <div id="contenedor">
         <div id="banner">
