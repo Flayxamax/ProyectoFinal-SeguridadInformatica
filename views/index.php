@@ -8,7 +8,10 @@ session_start();
     <title>Seguridad informatica</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../views/css/index.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"">
+    <link rel=" stylesheet" type="text/css" href="../views/css/index.css">
 </head>
 
 <body>
@@ -21,7 +24,8 @@ session_start();
                 <li style="color: white">Bienvenido,
                     <?php echo $_SESSION['nombre_completo']; ?>
                 </li>
-                <li><a href="../views/login.html">Salir</a></li>
+                <li><a href="../views/login.html" style="color: white">Salir</a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -30,13 +34,20 @@ session_start();
         <div id="banner">
             <div class="banner-texto">
                 <h1>Encriptador/Desencriptador de texto</h1>
-                <p>Encripta y desencripta cualquiero texto ;)</p>
+                <p>Encripta y desencripta cualquier texto ;)</p>
+                <br>
+                <a href="../views/encrypt.html" style="background-color: #1f7765;"
+                    class="btn btn-success btn-block">Encriptar</a>
+                <a href="../views/decrypt.html" style="background-color: #1f7765;"
+                    class="btn btn-success btn-block">Desencriptar</a>
             </div>
             <div class="banner-image">
                 <img id="slide" src="../views/img/encriptacion.png" alt="Imagen del banner">
             </div>
         </div>
     </div>
+
+
 
     <div id="contenido">
         <main>

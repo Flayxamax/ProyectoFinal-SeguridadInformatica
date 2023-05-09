@@ -12,8 +12,8 @@
     </div>
     <nav>
         <ul>
-            <li><a href="encrypt.html">Encriptar</a></li>
-            <li><a href="decrypt.html">Desencriptar</a></li>
+            <li><a href="encrypt.html" style="color: white">Encriptar</a></li>
+            <li><a href="decrypt.html" style="color: white">Desencriptar</a></li>
         </ul>
     </nav>
 </header>
@@ -23,15 +23,15 @@
         <form method="POST" action="../controllers/selectModeController.php">
             <div class="form-group">
                 <label for="ciphertext">Texto cifrado:</label>
-                <textarea class="form-control" name="ciphertext" id="ciphertext" cols="40" rows="5"></textarea>
+                <textarea class="form-control" name="ciphertext" id="ciphertext" cols="40" rows="5" required></textarea>
             </div>
             <div class="form-group">
                 <label for="key">Clave:</label>
-                <input type="text" class="form-control" name="key" id="key">
+                <input type="text" class="form-control" name="key" id="key" required>
             </div>
             <div class="form-group">
                 <label for="iv">IV:</label>
-                <input type="text" class="form-control" name="iv" id="iv">
+                <input type="text" class="form-control" name="iv" id="iv" required>
             </div>
             <div class="form-group">
                 <label for="cipherMode">Modo de cifrado:</label>

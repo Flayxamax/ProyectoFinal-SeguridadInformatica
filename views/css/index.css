@@ -185,3 +185,8 @@ hr {
     border: 1px solid #ddd;
     margin: 40px 0;
 }
+
+.btn-group .btn {
+    width: 50%;
+    height: 50px;
+}

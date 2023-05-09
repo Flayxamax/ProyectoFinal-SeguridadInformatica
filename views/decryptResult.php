@@ -11,8 +11,8 @@
     </div>
     <nav>
         <ul>
-            <li><a href="../views/encrypt.html">Encriptar</a></li>
-            <li><a href="../views/decrypt.html">Desencriptar</a></li>
+            <li><a href="../views/encrypt.html" style="color: white">Encriptar</a></li>
+            <li><a href="../views/decrypt.html" style="color: white">Desencriptar</a></li>
         </ul>
     </nav>
 </header>
