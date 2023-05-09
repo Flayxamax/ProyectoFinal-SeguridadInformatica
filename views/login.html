@@ -12,11 +12,22 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
 		integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"">
 	<link rel=" stylesheet" href="css/login.css">
+
+	<!-- reCaptcha Libraries-->
+	<script
+		src="https://www.google.com/recaptcha/enterprise.js?render=6LeGeNclAAAAANJYV865g-VILQD_3-NzbCUCSE6u"></script>
+	<script>
+		grecaptcha.enterprise.ready(function () {
+			grecaptcha.enterprise.execute('6LeGeNclAAAAANJYV865g-VILQD_3-NzbCUCSE6u', { action: 'login' }).then(function (token) {
+				document.getElementById('recaptcha-container').innerHTML = '<input type="hidden" name="g-recaptcha-response" value="' + token + '">';
+			});
+		});
+	</script>
 </head>
 
 <header>
 	<div class="logo">
-		<p1>Seguridad informatica</p1>
+		<p1><a href="../index.html">Seguridad informática</a></p1>
 	</div>
 </header>
 
@@ -29,15 +40,16 @@
 						<img src="img/logo.png" class="img-responsive" alt="Kaguyita">
 						<h2>Iniciar sesión</h2>
 
-						<form action="../controllers/redirigirController.php" method="post">
+						<form action="../controllers/redirigirController.php" method="post" data-sitekey="6LeGeNclAAAAANJYV865g-VILQD_3-NzbCUCSE6u">
 							<div class="form-group">
 								<input type="email" class="form-control input-lg" name="email"
 									placeholder="Correo electronico" required>
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control input-lg" name="pwd"
-									placeholder="Contraseña" required>
+								<input type="password" class="form-control input-lg" name="pwd" placeholder="Contraseña"
+									required>
 							</div>
+							<div id="recaptcha-container"></div>
 							<button style="background-color: #1f7765;" type="submit" name="iniciarSesion"
 								class="btn btn-success btn-block">Iniciar sesión</button>
 						</form>
@@ -50,7 +62,7 @@
 
 	<footer>
 		<div class="footer-info">
-			<p>Proyecto final: Seguridad informatica</p>
+			<p>Proyecto final: Seguridad informática</p>
 			<p>Equipo: Marchena</p>
 		</div>
 		<div class="footer-social">

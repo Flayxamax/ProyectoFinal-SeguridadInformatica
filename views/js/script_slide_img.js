@@ -3,10 +3,10 @@ var currentPosition = 0;
 
 function slideImage() {
   currentPosition -= 5;
-  bannerImg.style.right = currentPosition + 'px';
-  if (currentPosition <= -(bannerImg.width)) {
-    currentPosition = bannerImg.width;
-  }
+  //bannerImg.style.right = currentPosition + 'px';
+  //if (currentPosition <= -(bannerImg.width)) {
+  //  currentPosition = bannerImg.width;
+  //}
 }
 
 setInterval(slideImage, 10);

@@ -22,6 +22,12 @@ class UserModel
      */
     public function registrarUsuario($nombre, $apellidoPaterno, $apellidoMaterno, $correo, $contrasena)
     {
+        $nombre = filter_var($nombre, FILTER_SANITIZE_STRING);
+        $apellidoPaterno = filter_var($apellidoPaterno, FILTER_SANITIZE_STRING);
+        $apellidoMaterno = filter_var($apellidoMaterno, FILTER_SANITIZE_STRING);
+        $correo = filter_var($correo, FILTER_SANITIZE_EMAIL);
+        $contrasena = filter_var($contrasena, FILTER_SANITIZE_STRING);
+
         // Encriptar la contraseña antes de almacenarla en la base de datos
         $contrasenaEncriptada = password_hash($contrasena, PASSWORD_DEFAULT);
 
@@ -38,6 +44,34 @@ class UserModel
     }
 
     /**
+     * Verifica si un correo electrónico ya está registrado en la base de datos.
+     *
+     * @param string $correo El correo electrónico a verificar.
+     * @return bool True si el correo electrónico ya está registrado, false en caso contrario.
+     */
+    public function existeCorreo($correo)
+    {
+        // Filtrar los datos de entrada
+        $correo = filter_var($correo, FILTER_SANITIZE_EMAIL);
+
+        // Preparar la consulta SQL
+        $stmt = $this->conn->prepare("SELECT correo FROM usuarios WHERE correo = ?");
+        $stmt->bind_param("s", $correo);
+
+        // Ejecutar la consulta y obtener el resultado
+        $stmt->execute();
+        $stmt->store_result();
+        $numRows = $stmt->num_rows;
+
+        // Retornar true si el correo electrónico ya está registrado, false en caso contrario
+        if ($numRows > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * Verifica si las credenciales de un usuario son válidas para iniciar sesión.
      *
      * @param string $correo El correo electrónico del usuario.
@@ -46,6 +80,9 @@ class UserModel
      */
     public function validarInicioSesion($correo, $contrasena)
     {
+        // Filtrar los datos de entrada
+        $correo = filter_var($correo, FILTER_SANITIZE_EMAIL);
+        
         // Preparar la consulta para obtener la información del usuario
         $stmt = $this->conn->prepare("SELECT id_usuario, nombre, apellido_paterno, apellido_materno, correo, contrasena FROM usuarios WHERE correo = ?");
         $stmt->bind_param("s", $correo);

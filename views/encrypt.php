@@ -1,3 +1,19 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['nombre'])) {
+    header('Location: login.html');
+    exit;
+}
+
+$session_timeout = 5 * 60; // 5 minutos en segundos
+if (isset($_SESSION['start_time']) && time() - $_SESSION['start_time'] > $session_timeout) {
+    session_unset();
+    session_destroy();
+    header('Location: login.html');
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -8,12 +24,12 @@
 </head>
 <header>
     <div class="logo">
-        <p1>Seguridad informatica</p1>
+        <p1><a href="../views/index.php">Seguridad informática</a></p1>
     </div>
     <nav>
         <ul>
-            <li><a href="encrypt.html" style="color: white">Encriptar</a></li>
-            <li><a href="decrypt.html" style="color: white">Desencriptar</a></li>
+            <li style="color: #333333">Encriptar</li>
+            <li><a href="decrypt.php" style="color: white">Desencriptar</a></li>
         </ul>
     </nav>
 </header>

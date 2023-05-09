@@ -74,11 +74,13 @@ body {
 .banner-texto h1 {
     font-size: 3em;
     margin: 0;
+    text-shadow: -2px -2px 0 #24333c, 2px -2px 0 #24333c, -2px 2px 0 #24333c, 2px 2px 0 #24333c;
 }
 
 .banner-texto p {
     font-size: 1.5em;
     margin: 0;
+    text-shadow: -2px -2px 0 #24333c, 2px -2px 0 #24333c, -2px 2px 0 #24333c, 2px 2px 0 #24333c;
 }
 
 .banner-image {

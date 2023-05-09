@@ -9,6 +9,8 @@ if (isset($_POST['registrarUsuario'])) {
     $userController->registrarUsuario();
 } elseif (isset($_POST['iniciarSesion'])) {
     $userController->iniciarSesion();
+} elseif (isset($_POST['cerrarSesion'])) {
+    $userController->cerrarSesion();
 }
 
 ?>
